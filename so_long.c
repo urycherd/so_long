@@ -6,30 +6,25 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 11:58:28 by urycherd          #+#    #+#             */
-/*   Updated: 2022/04/25 17:36:00 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/04/25 18:02:44 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_close(void)
-{
-	exit(0);
-}
-
-void	make_img(t_game *data, t_V *rn)
+void	make_img(t_game *data)
 {
 	int		w;
 	int		h;
 
-	data->items = mlx_xpm_file_to_image(rn->mlx, "texture/items.xpm", &w, &h);
-	data->wall = mlx_xpm_file_to_image(rn->mlx, "texture/wall.xpm", &w, &h);
-	data->floor = mlx_xpm_file_to_image(rn->mlx, "texture/floor.xpm", &w, &h);
-	data->player = mlx_xpm_file_to_image(rn->mlx, "texture/player.xpm", &w, &h);
-	data->exit = mlx_xpm_file_to_image(rn->mlx, "texture/exit.xpm", &w, &h);
+	data->items = mlx_xpm_file_to_image(data->mlx, "texture/items.xpm", &w, &h);
+	data->wall = mlx_xpm_file_to_image(data->mlx, "texture/wall.xpm", &w, &h);
+	data->floor = mlx_xpm_file_to_image(data->mlx, "texture/floor.xpm", &w, &h);
+	data->player = mlx_xpm_file_to_image(data->mlx, "texture/plr.xpm", &w, &h);
+	data->exit = mlx_xpm_file_to_image(data->mlx, "texture/exit.xpm", &w, &h);
 }
 
-void	draw_obj(t_game *data, t_V *rn, void *obj, char c)
+void	draw_obj(t_game *data, void *obj, char c)
 {
 	int		x;
 	int		y;
@@ -44,7 +39,7 @@ void	draw_obj(t_game *data, t_V *rn, void *obj, char c)
 		{
 			if (map[y][x] == c)
 			{
-				mlx_put_image_to_window(rn->mlx, rn->window, obj, \
+				mlx_put_image_to_window(data->mlx, data->window, obj, \
 						x, y);
 			}
 			x++;
@@ -53,50 +48,38 @@ void	draw_obj(t_game *data, t_V *rn, void *obj, char c)
 	}
 }
 
-void	draw_img(t_game *data, t_V *rn)
+void	draw_img(t_game *data)
 {
-	draw_obj(data, rn, data->floor, '1');
-	draw_obj(data, rn, data->wall, '1');
-	draw_obj(data, rn, data->floor, '0');
-	draw_obj(data, rn, data->floor, 'E');
-	draw_obj(data, rn, data->exit, 'E');
-	draw_obj(data, rn, data->floor, 'P');
-	draw_obj(data, rn, data->player, 'P');
-	draw_obj(data, rn, data->floor, 'C');
-	draw_obj(data, rn, data->items, 'C');
+	draw_obj(data, data->floor, '0');
+	draw_obj(data, data->floor, '1');
+	draw_obj(data, data->floor, 'E');
+	draw_obj(data, data->floor, 'P');
+	draw_obj(data, data->floor, 'C');
+	draw_obj(data, data->player, 'P');
+	draw_obj(data, data->items, 'C');
+	draw_obj(data, data->wall, '1');
+	draw_obj(data, data->exit, 'E');
 }
 
 void	make_window(t_game *data)
 {
-
-	// void	*mlx;
-	// void	*mlx_win;
-
-	// mlx = mlx_init();
-	// mlx_win = mlx_new_window(mlx, 500, 300, "so_long");
-	// mlx_loop(mlx);
-
-
-
-	t_V	rend;
-
-	rend.mlx = mlx_init(); // место под окно
-	if (rend.mlx == NULL)
+	data->mlx = mlx_init(); // место под окно
+	if (data->mlx == NULL)
 		return ;
-	rend.window = mlx_new_window(rend.mlx, data->map_x * 100, \
+	data->window = mlx_new_window(data->mlx, data->map_x * 100, \
 									data->map_y * 100, "So_long");
-	if (rend.mlx == NULL)
+	if (data->mlx == NULL)
 	{
-		free(rend.window);
+		free(data->window);
 		return ;
 	}
-	make_img(data, &rend);
-	draw_img(data, &rend);
-	mlx_loop(rend.mlx);
+	make_img(data);
+	draw_img(data);
+	mlx_loop(data->mlx);
 	// mlx_hook(rend.window, 17, 0, ft_close(), 0);//анимация
-	mlx_destroy_window(rend.mlx, rend.window);
-	// mlx_destroy_display(rend.mlx);
-	free(rend.mlx);
+	mlx_destroy_window(data->mlx, data->window);
+	// mlx_destroy_display(data->mlx);
+	free(data->mlx);
 }
 
 // void	make_game(t_game *data)

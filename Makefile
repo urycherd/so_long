@@ -6,7 +6,7 @@
 #    By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/13 12:02:40 by urycherd          #+#    #+#              #
-#    Updated: 2022/04/25 17:32:49 by urycherd         ###   ########.fr        #
+#    Updated: 2022/04/25 17:42:02 by urycherd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,7 @@ fclean:
 	@echo "cleaning all..."
 	@${RM} ${OBJS}
 	@${RM} ${NAME}
+	@make -C ${MLXPATH} clean
 	@make -C ${LBFPATH} fclean
 	@echo "cleaned"
 

@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:46:55 by urycherd          #+#    #+#             */
-/*   Updated: 2022/04/25 16:21:50 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/04/25 18:00:35 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,9 @@ typedef struct s_game_map
 	// void	*end_img;
 	// void	*enemy;
 	// int		*enemypos;
-}	t_game;
-
-typedef struct s_V
-{
-	void	*window;
 	void	*mlx;
-}	t_V;
+	void	*window;
+}	t_game;
 
 typedef struct s_flags
 {
@@ -58,6 +54,7 @@ typedef struct s_flags
 	int	e;
 }	t_flags;
 
+int		ft_close(void);
 void	ft_error(char *str);
 void	check_flags(t_flags *wow);
 void	check_cpe(char sym, t_flags *wow);
