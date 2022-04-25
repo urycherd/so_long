@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 18:00:31 by urycherd          #+#    #+#             */
-/*   Updated: 2022/03/22 17:02:38 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/04/25 15:51:02 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	check_flags(t_flags *wow)
 {
 	if (wow->c == 0)
 		ft_error("Error: map mistake");
-	if (wow->e == 0)
+	else if (wow->e == 0)
 		ft_error("Error: map mistake");
-	if (wow->p == 0)
+	else if (wow->p == 0)
 		ft_error("Error: map mistake");
 }
 

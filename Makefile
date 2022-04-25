@@ -6,7 +6,7 @@
 #    By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/13 12:02:40 by urycherd          #+#    #+#              #
-#    Updated: 2022/03/22 15:02:51 by urycherd         ###   ########.fr        #
+#    Updated: 2022/04/25 17:32:49 by urycherd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,15 +20,17 @@ CC = cc
 
 LBFPATH = libft/
 
+MLXPATH = mlx/
+
 LBF = libft.a
 
-FLAGS = 
-# -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
 OBJS = ${SRCS:.c=.o}
 
+MLX = -L mlx -lmlx -framework OpenGL -framework AppKit
 all: ${LBF} ${NAME}
 	@echo "Done!"
 
@@ -39,7 +41,8 @@ ${LBF}:
 
 ${NAME}: ${OBJS}
 	@echo "Making ${NAME}..."
-	@${CC} ${FLAGS} -L ${LBFPATH} -lft ${OBJS} -o ${NAME}
+	@make -s -C ./mlx
+	@${CC} ${FLAGS} -L ${LBFPATH} -lft ${OBJS} ${MLX} -o ${NAME}
 
 ${OBJS}: ${HEADER}
 
@@ -50,6 +53,7 @@ clean:
 	@echo "cleaning..."
 	@${RM} ${OBJS}
 	@make -C ${LBFPATH} clean
+	@make -C ${MLXPATH} clean
 	@echo "obj deleted"
 
 fclean:
@@ -60,5 +64,6 @@ fclean:
 	@echo "cleaned"
 
 re: fclean all
+	make re -C ./mlx
 
 .PHONY: all clean fclean re

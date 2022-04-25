@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 14:42:40 by urycherd          #+#    #+#             */
-/*   Updated: 2022/03/22 18:05:08 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/04/25 15:56:28 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,16 @@ static int	check_name_and_fd(char *argv)
 
 static int	map_mistake(char *line, int lenght)
 {
-	if ((int)ft_strlen(line) != lenght)
-		return (0);
-	while (*line)
+	int	i;
+
+	i = 0;
+	if ((int)ft_strlen(line) != lenght - 1)
 	{
-		if (!ft_strchr("01CEP\n", *line++))
+		return (0);
+	}
+	while (i != lenght - 1)
+	{
+		if (ft_strchr("01CEP\n", line[i++]) != 0)
 			return (1);
 	}
 	return (0);
@@ -62,7 +67,7 @@ static void	additional_check_of_map(char	**map, t_game *data)
 	while (map[y])
 	{
 		x = 0;
-		if (map_mistake(map[y], data->map_x))
+		if (map_mistake(map[y], data->map_x) == 0)
 			ft_error("Error: map mistake");
 		while (map[y][x])
 		{
