@@ -60,5 +60,10 @@ void	check_flags(t_flags *wow);
 void	check_cpe(char sym, t_flags *wow);
 void	map_parce(char *argv, t_game *data);
 void	ft_check_pec(char sym, int y, int x, t_game *data);
+void	draw_floor(t_game *data, int x, int y);
+void	draw_wall(t_game *data, int x, int y);
+void	draw_item(t_game *data, int x, int y);
+void	draw_exit(t_game *data, int x, int y););
+void	draw_player(t_game *data, int x, int y);
 
 #endif
