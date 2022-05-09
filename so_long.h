@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:46:55 by urycherd          #+#    #+#             */
-/*   Updated: 2022/04/25 18:00:35 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/09 19:08:13 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "mlx/mlx.h"
 # include "libft/libft.h"
 
-# define SCALE 50
+# define SCALE 100
 
 //delete them
 
@@ -37,8 +37,8 @@ typedef struct s_game_map
 	void	*items;
 	void	*player; // *player[2] что бы картинка персонажа менялась
 	int		max_score;
-	// int		current_score;
-	// int		steps;
+	int		current_score;
+	int		steps;
 	int		game_over;
 	// void	*end_img;
 	// void	*enemy;
@@ -55,15 +55,19 @@ typedef struct s_flags
 }	t_flags;
 
 int		ft_close(void);
+int		clean_exit(t_game *data);
+int		key_hook(int keysym, t_game *data);
+void	initialization(t_game *data);
 void	ft_error(char *str);
 void	check_flags(t_flags *wow);
 void	check_cpe(char sym, t_flags *wow);
 void	map_parce(char *argv, t_game *data);
+void	ft_check(char *line);
 void	ft_check_pec(char sym, int y, int x, t_game *data);
 void	draw_floor(t_game *data, int x, int y);
 void	draw_wall(t_game *data, int x, int y);
 void	draw_item(t_game *data, int x, int y);
-void	draw_exit(t_game *data, int x, int y););
+void	draw_exit(t_game *data, int x, int y);
 void	draw_player(t_game *data, int x, int y);
 
 #endif

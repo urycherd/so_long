@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 14:42:40 by urycherd          #+#    #+#             */
-/*   Updated: 2022/04/25 15:56:28 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/09 18:41:57 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ static int	map_mistake(char *line, int lenght)
 	int	i;
 
 	i = 0;
-	if ((int)ft_strlen(line) != lenght - 1)
+	if ((int)ft_strlen(line) != lenght)
 	{
 		return (0);
 	}
-	while (i != lenght - 1)
+	while (i != lenght)
 	{
-		if (ft_strchr("01CEP\n", line[i++]) != 0)
+		if (ft_strchr("01CEP", line[i++]) != 0)
 			return (1);
 	}
 	return (0);
@@ -92,8 +92,7 @@ void	map_parce(char *argv, t_game *data)
 	all_line = get_next_line(fd);
 	if (all_line == NULL)
 		ft_error("Error: map mistake");
-	data->map_x = ft_strlen(all_line);
-	data->map_y = 0;
+	data->map_x = ft_strlen(all_line) - 1;
 	while (all_line != NULL)
 	{
 		gnl_line = get_next_line(fd);
@@ -104,6 +103,7 @@ void	map_parce(char *argv, t_game *data)
 		free(tmp);
 		free(gnl_line);
 	}
+	ft_check(all_line);
 	data->map_data = ft_split(all_line, '\n');
 	free(all_line);
 	additional_check_of_map(data->map_data, data);
