@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 14:42:40 by urycherd          #+#    #+#             */
-/*   Updated: 2022/05/09 18:41:57 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/09 21:07:22 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ static void	additional_check_of_map(char	**map, t_game *data)
 	t_flags	wow;
 
 	y = 0;
-	data->max_score = 0;
 	wow.c = 0;
 	wow.p = 0;
 	wow.e = 0;
@@ -81,7 +80,27 @@ static void	additional_check_of_map(char	**map, t_game *data)
 	check_flags(&wow);
 }
 
-void	map_parce(char *argv, t_game *data)
+
+void	massive_reader(char **massive)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while(massive[y])
+	{
+		x = 0;
+		while(massive[y][x])
+		{
+			printf("%c", massive[y][x]);
+			x++;
+		}
+		printf("\n");
+		y++;
+	}
+}
+
+void	map_parce(char *argv, t_game **data)
 {
 	int		fd;
 	char	*gnl_line;
@@ -92,7 +111,7 @@ void	map_parce(char *argv, t_game *data)
 	all_line = get_next_line(fd);
 	if (all_line == NULL)
 		ft_error("Error: map mistake");
-	data->map_x = ft_strlen(all_line) - 1;
+	(*data)->map_x = ft_strlen(all_line) - 1;
 	while (all_line != NULL)
 	{
 		gnl_line = get_next_line(fd);
@@ -104,8 +123,8 @@ void	map_parce(char *argv, t_game *data)
 		free(gnl_line);
 	}
 	ft_check(all_line);
-	data->map_data = ft_split(all_line, '\n');
+	(*data)->map_data = ft_split(all_line, '\n');
 	free(all_line);
-	additional_check_of_map(data->map_data, data);
+	additional_check_of_map((*data)->map_data, *data);
 	close(fd);
 }

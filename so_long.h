@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:46:55 by urycherd          #+#    #+#             */
-/*   Updated: 2022/05/09 19:08:13 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/09 21:47:56 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,14 @@ typedef struct s_flags
 }	t_flags;
 
 int		ft_close(void);
-int		clean_exit(t_game *data);
-int		key_hook(int keysym, t_game *data);
+int		clean_exit(t_game **data);
+int		key_hook(int keysym, t_game **data);
 void	initialization(t_game *data);
 void	ft_error(char *str);
+void	free_data(t_game **data);
 void	check_flags(t_flags *wow);
 void	check_cpe(char sym, t_flags *wow);
-void	map_parce(char *argv, t_game *data);
+void	map_parce(char *argv, t_game **data);
 void	ft_check(char *line);
 void	ft_check_pec(char sym, int y, int x, t_game *data);
 void	draw_floor(t_game *data, int x, int y);

@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 18:00:31 by urycherd          #+#    #+#             */
-/*   Updated: 2022/04/25 15:51:02 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/09 21:08:02 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_check_pec(char sym, int y, int x, t_game *data)
 {
 	if ((y == 0 || y == data->map_y - 1 || x == 0 \
-		|| x == data->map_x - 1) && sym != '1')
+		|| x == data->map_x - 1) && sym != '1') // не факт, что у правильно работает
 		ft_error("Error: map mistake");
 	if (sym == 'P')
 	{

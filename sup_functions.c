@@ -6,24 +6,24 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 14:05:35 by urycherd          #+#    #+#             */
-/*   Updated: 2022/05/09 19:11:33 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/09 21:47:19 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	free_map(t_game *data)
+void	free_data(t_game **data)
 {
 	int	i;
 
 	i = 0;
-	while (data->map_data[i])
+	while ((*data)->map_data[i])
 	{
-		free(data->map_data[i]);
+		free((*data)->map_data[i]);
 		i++;
 	}
-	free(data->map_data);
-	free(data);
+	free((*data)->map_data);
+	free(*data);
 }
 
 void	ft_error(char *str)

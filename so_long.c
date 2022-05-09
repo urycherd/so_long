@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 11:58:28 by urycherd          #+#    #+#             */
-/*   Updated: 2022/05/09 19:10:50 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/09 21:48:17 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,37 +52,41 @@ void	draw_all_map(t_game *data) // либо draw_all_map и файл obj_paint.c
 	}
 }
 
-void	make_window(t_game *data)
+void	make_window(t_game **data)
 {
-	data->mlx = mlx_init(); // место под окно
-	if (data->mlx == NULL)
+	(*data)->mlx = mlx_init(); // место под окно
+	if ((*data)->mlx == NULL)
 		return ;
-	data->window = mlx_new_window(data->mlx, (data->map_x) * SCALE, \
-									(data->map_y) * SCALE, "So_long");
-	if (data->mlx == NULL)
+	(*data)->window = mlx_new_window((*data)->mlx, ((*data)->map_x) * SCALE, \
+									((*data)->map_y) * SCALE, "So_long");
+	if ((*data)->mlx == NULL)
 	{
-		free(data->window);
+		free((*data)->window);
 		return ;
 	}
-	make_img(data);
-	draw_all_map(data);
-	mlx_key_hook(data->window, key_hook, data);
-	mlx_hook(data->window, 17, 0, clean_exit, &data);
-	mlx_loop(data->mlx);
-	mlx_destroy_window(data->mlx, data->window);
+	make_img((*data));
+	draw_all_map((*data));
+	mlx_key_hook((*data)->window, key_hook, data);
+	mlx_hook((*data)->window, 17, 0, clean_exit, data);
+	mlx_loop((*data)->mlx);
+	mlx_destroy_window((*data)->mlx, (*data)->window);
 	// mlx_destroy_display(data->mlx);
-	free(data->mlx);
+	free((*data)->mlx);
 }
 
 
 int	main(int argc, char **argv)
 {
-	t_game	data;
+	t_game	*data;
 
 	if (argc == 2)
 	{
+		data = (t_game *)malloc(sizeof(t_game));
+		if (data == NULL)
+			exit(1);
 		map_parce(argv[1], &data);
 		make_window(&data);
 	}
+	clean_exit(&data);
 	return (0);
 }
