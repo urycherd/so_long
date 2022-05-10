@@ -6,11 +6,11 @@
 #    By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/13 12:02:40 by urycherd          #+#    #+#              #
-#    Updated: 2022/05/10 15:02:43 by urycherd         ###   ########.fr        #
+#    Updated: 2022/05/10 15:19:16 by urycherd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = so_long.a
+NAME = so_long
 
 HEADER = so_long.h
 
@@ -32,6 +32,7 @@ RM = rm -f
 OBJS = ${SRCS:.c=.o}
 
 MLX = -L mlx -lmlx -framework OpenGL -framework AppKit
+
 all: ${LBF} ${NAME}
 	@echo "Done!"
 

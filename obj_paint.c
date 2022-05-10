@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 14:27:49 by urycherd          #+#    #+#             */
-/*   Updated: 2022/05/10 12:44:15 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/10 15:33:46 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ void	draw_wall(t_game *data, int x, int y)
 void	draw_item(t_game *data, int x, int y)
 {
 	mlx_put_image_to_window(data->mlx, data->window, data->items, \
-									x * SCALE, y * SCALE);
+									x * SCALE + 20, y * SCALE);
 }
 
 void	draw_exit(t_game *data, int x, int y)
 {
 	mlx_put_image_to_window(data->mlx, data->window, data->exit, \
-									x * SCALE, y * SCALE);
+									x * SCALE + 20, y * SCALE);
 }
 
 void	draw_player(t_game *data, int x, int y)

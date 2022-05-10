@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 14:42:40 by urycherd          #+#    #+#             */
-/*   Updated: 2022/05/10 14:33:21 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/10 15:24:30 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	making_line(int fd, char **all_line)
 static void	ft_error_and_free(t_game **data)
 {
 	free(*data);
-	ft_error("Error: fd mistake");
+	ft_error("Error: map mistake");
 }
 
 void	map_parce(char *argv, t_game **data)
