@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 14:54:30 by urycherd          #+#    #+#             */
-/*   Updated: 2022/05/10 15:05:52 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/10 16:00:59 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	draw_all_map(t_game **data)
 		}
 		y++;
 	}
+	ft_putstr_fd("\nGAME START\n", 2);
 }
 
 void	make_window(t_game **data)

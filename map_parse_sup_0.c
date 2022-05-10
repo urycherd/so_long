@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 13:38:05 by urycherd          #+#    #+#             */
-/*   Updated: 2022/05/10 13:55:47 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/10 15:55:51 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,15 @@ int	ft_check_name(char *name)
 	return (0);
 }
 
-int	check_name_and_fd(char *argv)
+int	check_name_and_fd(char *argv, t_game **data)
 {
 	int	fd;
 
 	if (!ft_check_name(argv))
-		ft_error("Error: wrong file name");
+		ft_error_and_free(data, "Error: file name mistake");
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
-		ft_error("Error: can't open this file");
+		ft_error_and_free(data, "Error: fd mistake");
 	return (fd);
 }
 
