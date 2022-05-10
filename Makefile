@@ -6,7 +6,7 @@
 #    By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/13 12:02:40 by urycherd          #+#    #+#              #
-#    Updated: 2022/05/09 16:42:20 by urycherd         ###   ########.fr        #
+#    Updated: 2022/05/10 15:02:43 by urycherd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = so_long.a
 
 HEADER = so_long.h
 
-SRCS = so_long.c map_parse.c sup_functions.c map_parse_sup.c obj_paint.c keys.c
+SRCS = so_long.c map_parse.c sup_functions.c map_parse_sup_0.c map_parse_sup_1.c obj_paint.c keys.c\
+keys_sup.c drawing.c
 
 CC = cc
 
@@ -24,8 +25,7 @@ MLXPATH = mlx/
 
 LBF = libft.a
 
-FLAGS = 
-# -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 

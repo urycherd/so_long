@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:46:55 by urycherd          #+#    #+#             */
-/*   Updated: 2022/05/09 21:47:56 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/10 15:02:24 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,24 @@ typedef struct s_flags
 }	t_flags;
 
 int		ft_close(void);
+int		ft_check(char *line);
+int		ft_check_name(char *name);
+int		check_flags(t_flags *wow);
 int		clean_exit(t_game **data);
+int		check_name_and_fd(char *argv);
+int		map_mistake(char *line, int lenght);
 int		key_hook(int keysym, t_game **data);
-void	initialization(t_game *data);
+int		ft_check_pec(char sym, int y, int x, t_game *data);
+int		additional_check_of_map(char	**map, t_game *data);
+void	initialization(t_game **data);
+void	step_counter(t_game **data);
 void	ft_error(char *str);
+void	make_img(t_game **data);
+void	draw_all_map(t_game **data);
 void	free_data(t_game **data);
-void	check_flags(t_flags *wow);
+void	make_window(t_game **data);
 void	check_cpe(char sym, t_flags *wow);
 void	map_parce(char *argv, t_game **data);
-void	ft_check(char *line);
-void	ft_check_pec(char sym, int y, int x, t_game *data);
 void	draw_floor(t_game *data, int x, int y);
 void	draw_wall(t_game *data, int x, int y);
 void	draw_item(t_game *data, int x, int y);

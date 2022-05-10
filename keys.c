@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 16:31:54 by urycherd          #+#    #+#             */
-/*   Updated: 2022/05/09 21:48:57 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/10 14:49:53 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	ft_moving_up_down(t_game **data, int a)
 	(*data)->player_position_y = new_y;
 	draw_floor(*data, x, old_y);
 	(*data)->map_data[old_y][x] = '0';
+	step_counter(data);
 }
 
 void	ft_moving_left_right(t_game **data, int a)
@@ -69,7 +70,9 @@ void	ft_moving_left_right(t_game **data, int a)
 	{
 		if ((*data)->current_score == (*data)->max_score)
 		{
-			return ;
+			(*data)->game_over = 1;
+			ft_putstr_fd("\nYOU WIN\n\n", 2);
+			clean_exit(data);
 		}
 		return ;
 	}
@@ -84,9 +87,8 @@ void	ft_moving_left_right(t_game **data, int a)
 	(*data)->player_position_x = new_x;
 	draw_floor(*data, old_x, y);
 	(*data)->map_data[y][old_x] = '0';
+	step_counter(data);
 }
-
-
 
 int	key_hook(int keysym, t_game **data)
 {

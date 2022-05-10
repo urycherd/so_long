@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 14:05:35 by urycherd          #+#    #+#             */
-/*   Updated: 2022/05/09 21:47:19 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/10 15:06:19 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,32 +35,16 @@ void	ft_error(char *str)
 
 int	ft_close(void)
 {
-	// free data in ft_close
 	exit(0);
 }
 
-void	ft_check(char *line)
+void	initialization(t_game **data)
 {
-	int	x;
-
-	x = 0;
-	if (line[0] == '\n')
-		ft_error("Error: map mistake");
-	while (line[x])
-	{
-		if (line[x] == '\n' && line[x + 1] == '\n')
-			ft_error("Error: map mistake");
-		x++;
-	}
-}
-
-void	initialization(t_game *data)
-{
-	data->map_data = NULL;
-	data->map_y = 0;
-	data->map_x = 0;
-	data->max_score = 0;
-	data->current_score = 0;
-	data->steps = 0;
-	data->game_over = 0;
+	(*data)->map_data = NULL;
+	(*data)->map_y = 0;
+	(*data)->map_x = 0;
+	(*data)->max_score = 0;
+	(*data)->current_score = 0;
+	(*data)->steps = 0;
+	(*data)->game_over = 0;
 }

@@ -6,125 +6,57 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 14:42:40 by urycherd          #+#    #+#             */
-/*   Updated: 2022/05/09 21:07:22 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/10 14:33:21 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	ft_check_name(char *name)
+static int	making_line(int fd, char **all_line)
 {
-	int			len;
-	const char	*start;
+	char	*gnl_line;
+	char	*tmp;
 
-	len = ft_strlen(name);
-	start = (const char *) &name[(len - 4)];
-	if (ft_strncmp(start, ".ber", 4) == 0)
+	gnl_line = get_next_line(fd);
+	if (gnl_line == NULL)
 		return (1);
+	tmp = *all_line;
+	*all_line = ft_strjoin(tmp, gnl_line);
+	free(tmp);
+	free(gnl_line);
 	return (0);
 }
 
-static int	check_name_and_fd(char *argv)
+static void	ft_error_and_free(t_game **data)
 {
-	int	fd;
-
-	if (!ft_check_name(argv))
-		ft_error("Error: wrong file name");
-	fd = open(argv, O_RDONLY);
-	if (fd < 0)
-		ft_error("Error: can't open this file");
-	return (fd);
-}
-
-static int	map_mistake(char *line, int lenght)
-{
-	int	i;
-
-	i = 0;
-	if ((int)ft_strlen(line) != lenght)
-	{
-		return (0);
-	}
-	while (i != lenght)
-	{
-		if (ft_strchr("01CEP", line[i++]) != 0)
-			return (1);
-	}
-	return (0);
-}
-
-static void	additional_check_of_map(char	**map, t_game *data)
-{
-	int		x;
-	int		y;
-	t_flags	wow;
-
-	y = 0;
-	wow.c = 0;
-	wow.p = 0;
-	wow.e = 0;
-	while (map[y])
-	{
-		x = 0;
-		if (map_mistake(map[y], data->map_x) == 0)
-			ft_error("Error: map mistake");
-		while (map[y][x])
-		{
-			ft_check_pec(map[y][x], y, x, data);
-			check_cpe(map[y][x], &wow);
-			x++;
-		}
-		y++;
-		data->map_y++;
-	}
-	check_flags(&wow);
-}
-
-
-void	massive_reader(char **massive)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while(massive[y])
-	{
-		x = 0;
-		while(massive[y][x])
-		{
-			printf("%c", massive[y][x]);
-			x++;
-		}
-		printf("\n");
-		y++;
-	}
+	free(*data);
+	ft_error("Error: fd mistake");
 }
 
 void	map_parce(char *argv, t_game **data)
 {
 	int		fd;
-	char	*gnl_line;
+	int		done;
 	char	*all_line;
-	char	*tmp;
 
+	done = 0;
 	fd = check_name_and_fd(argv);
+	if (fd == -1)
+		ft_error_and_free(data);
 	all_line = get_next_line(fd);
 	if (all_line == NULL)
-		ft_error("Error: map mistake");
+		ft_error_and_free(data);
 	(*data)->map_x = ft_strlen(all_line) - 1;
-	while (all_line != NULL)
-	{
-		gnl_line = get_next_line(fd);
-		if (gnl_line == NULL)
-			break ;
-		tmp = all_line;
-		all_line = ft_strjoin(tmp, gnl_line);
-		free(tmp);
-		free(gnl_line);
-	}
-	ft_check(all_line);
+	while (done == 0)
+		done = making_line(fd, &all_line);
+	if (ft_check(all_line) == 0)
+		ft_error_and_free(data);
 	(*data)->map_data = ft_split(all_line, '\n');
 	free(all_line);
-	additional_check_of_map((*data)->map_data, *data);
+	if (additional_check_of_map((*data)->map_data, *data) == 0)
+	{
+		free_data(data);
+		ft_error("Error: map mistake");
+	}
 	close(fd);
 }
