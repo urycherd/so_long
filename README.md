@@ -14,7 +14,7 @@ This is a small 2D game in which the main goal of the player is to collect all t
 ## <a name="Rules"></a>Rules
 - The `W`, `A`, `S`, `D` keys are used to control the main character.
 - The player can't escape until all items are not collected.
-- At every move, the current number of movements must be displayed in the shell.
+- At every move, the current number of movements will be displayed in the shell.
 
 ## <a name="Start-&&-End"></a>Start && End
 To compile the program, run the following command:
