@@ -17,7 +17,7 @@ To compile the program, run the following command:
 cd so_long && make
 ./so_long maps/map.ber
 ```
-The program can take as parameter a map description file ending with the .ber extension only.
+The program takes as parameter a map description file only ending with the .ber extension.
 Clicking on the cross on the window’s frame or pressing ESC closes the window and quit the program in a clean way.
 
 ## <a name="Rules"></a>Rules
