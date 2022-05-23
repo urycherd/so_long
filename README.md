@@ -27,6 +27,7 @@ Clicking on the cross on the window’s frame or pressing ESC closes the window 
 
 ## <a name="Mapfile-feature"></a>Mapfile feature
 You can create yout own map. For this you should follow this instructions:
+- Your file format still must be `.ber`.
 - The map has to be constructed with 3 components: walls, collectibles, and free space.
 - The map must contain at least 1 exit, 1 collectible, and 1 starting position.
 - The map can be composed of only these 5 characters:<br />
