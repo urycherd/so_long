@@ -1,8 +1,8 @@
-## so_long
-# Table of Contents
-<a Rules="# Rules"></a>
+# so_long
+## Table of Contents
+<a Rules="Rules"></a>
 
-# Rules
+## Rules
 - The W, A, S, and D keys must be used to move the main character.
 - The player should be able to move in these 4 directions: up, down, left, right.
 - The player should not be able to move into walls.
