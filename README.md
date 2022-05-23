@@ -2,19 +2,14 @@
 
 ## Table of Contents
 - [Description](#Description)
-- [Rules](#Rules)
 - [Start && End](#Start-&&-End)
+- [Rules](#Rules)
 - [Mapfile feature](#Mapfile-feature)
 
 ## <a name="Description"></a>Description
 This is a small 2D game in which the main goal of the player is to collect all the items and escape through the exit.
 
 ![](https://i.ytimg.com/vi/k4Ybh-iaH6Q/hqdefault.jpg)
-
-## <a name="Rules"></a>Rules
-- The `W`, `A`, `S`, `D` keys are used to control the main character.
-- The player can't escape until all items are not collected.
-- At every move, the current number of movements will be displayed in the shell.
 
 ## <a name="Start-&&-End"></a>Start && End
 To compile the program, run the following command:
@@ -24,6 +19,11 @@ cd so_long && make
 ```
 The program can take as parameter a map description file ending with the .ber extension only.
 Clicking on the cross on the window’s frame or pressing ESC closes the window and quit the program in a clean way.
+
+## <a name="Rules"></a>Rules
+- The `W`, `A`, `S`, `D` keys are used to control the main character.
+- The player can't escape until all items are not collected.
+- At every move, the current number of movements will be displayed in the shell.
 
 ## <a name="Mapfile-feature"></a>Mapfile feature
 You can create yout own map. For this you should follow this instructions:
