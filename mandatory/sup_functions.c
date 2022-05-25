@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 14:05:35 by urycherd          #+#    #+#             */
-/*   Updated: 2022/05/10 15:06:19 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/10 18:25:12 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ void	free_data(t_game **data)
 	}
 	free((*data)->map_data);
 	free(*data);
+}
+
+int	clean_exit(t_game **data)
+{
+	mlx_destroy_window((*data)->mlx, (*data)->window);
+	free_data(data);
+	exit(1);
+	return (0);
 }
 
 void	ft_error(char *str)

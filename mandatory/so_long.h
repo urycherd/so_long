@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:46:55 by urycherd          #+#    #+#             */
-/*   Updated: 2022/05/10 15:54:53 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/05/25 18:43:48 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,10 @@
 # define SO_LONG_H
 
 # include <fcntl.h>
-// # include <mlx.h>
-# include "mlx/mlx.h"
-# include "libft/libft.h"
+# include "../mlx/mlx.h"
+# include "../libft/libft.h"
 
 # define SCALE 100
-
-//delete them
-
-#include <stdio.h>
 
 typedef struct s_game_map
 {
@@ -35,14 +30,11 @@ typedef struct s_game_map
 	void	*exit;
 	void	*floor;
 	void	*items;
-	void	*player; // *player[2] что бы картинка персонажа менялась
+	void	*player;
 	int		max_score;
 	int		current_score;
 	int		steps;
 	int		game_over;
-	// void	*end_img;
-	// void	*enemy;
-	// int		*enemypos;
 	void	*mlx;
 	void	*window;
 }	t_game;
