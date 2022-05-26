@@ -9,7 +9,7 @@
 ## <a name="Description"></a>Description
 This is a small 2D game in which the main goal of the player is to collect all the items and escape through the exit.
 
-![](https://i.ytimg.com/vi/k4Ybh-iaH6Q/hqdefault.jpg)
+![](https://i.ytimg.com/vi/k4Ybh-iaH6Q/hqdefault.jpg)<br />
 ![](https://user-images.githubusercontent.com/89844627/170444402-987c1f16-1408-491f-9ec9-afba105f1ef8.jpg)
 
 
