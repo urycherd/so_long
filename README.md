@@ -9,8 +9,8 @@
 ## <a name="Description"></a>Description
 This is a small 2D game for MAC OS in which the main goal of the player is to collect all the items and escape through the exit.
 
-![](https://user-images.githubusercontent.com/89844627/170444716-ece4ea48-3a30-4999-a1e0-b8ce769a986f.jpg)<br />
-![](https://user-images.githubusercontent.com/89844627/170444402-987c1f16-1408-491f-9ec9-afba105f1ef8.jpg)
+![](https://user-images.githubusercontent.com/89844627/170445885-a2af5b67-64a5-4f65-abef-c4c3026609e4.jpg)<br />
+![so_long_bonus](https://user-images.githubusercontent.com/89844627/170444402-987c1f16-1408-491f-9ec9-afba105f1ef8.jpg)
 
 
 ## <a name="Start-&&-End"></a>Start && End
