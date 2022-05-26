@@ -10,7 +10,7 @@
 This is a small 2D game in which the main goal of the player is to collect all the items and escape through the exit.
 
 ![](https://i.ytimg.com/vi/k4Ybh-iaH6Q/hqdefault.jpg)
-![](https://user-images.githubusercontent.com/89844627/170443121-dd0ce1f3-8470-465f-ab9d-45a0f32f00b4.jpg)
+![](https://user-images.githubusercontent.com/89844627/170443807-45f0a9dd-9d71-4fa2-aa8b-0730163a56f5.jpg)
 
 ## <a name="Start-&&-End"></a>Start && End
 To compile the program, run the following command:
