@@ -7,7 +7,7 @@
 - [Mapfile feature](#Mapfile-feature)
 
 ## <a name="Description"></a>Description
-This is a small 2D game for MAC OS in which the main goal of the player is to collect all the items and escape through the exit. The project was code to get familiar with the mlx library and UI in general.
+This is a small 2D game for MAC OS in which the main goal of the player is to collect all the items and escape through the exit. The project was coded to get familiar with the mlx library and UI in general.
 
 ![](https://user-images.githubusercontent.com/89844627/170445885-a2af5b67-64a5-4f65-abef-c4c3026609e4.jpg)
 ![so_long_bonus](https://user-images.githubusercontent.com/89844627/170444402-987c1f16-1408-491f-9ec9-afba105f1ef8.jpg)
