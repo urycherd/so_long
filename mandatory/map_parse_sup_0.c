@@ -47,10 +47,10 @@ int	map_mistake(char *line, int lenght)
 	}
 	while (i != lenght)
 	{
-		if (ft_strchr("01CEP", line[i++]) != 0)
-			return (1);
+		if (ft_strchr("01CEP", line[i++]) == NULL)
+			return (0);
 	}
-	return (0);
+	return (1);
 }
 
 static void	flag_inicilization(t_flags *wow)
