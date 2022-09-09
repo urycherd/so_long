@@ -17,6 +17,7 @@ library
 - All functions of the MiniLibX
 - ft_printf and any equivalent
 I coded <br />
+
 Bonus part:<br />
 - The player lose when they touch an enemy patrol.
 - Added some sprite animation.
