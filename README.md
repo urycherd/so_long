@@ -8,6 +8,16 @@
 
 ## <a name="Description"></a>Description
 This is a small 2D game for MAC OS in which the main goal of the player is to collect all the items and escape through the exit. The project was coded to get familiar with the mlx library and UI in general.<br />
+External functions:
+- open, close, read, write,
+malloc, free, perror,
+strerror, exit
+- All functions of the math
+library (-lm compiler option,
+man man 3 math)
+- All functions of the MiniLibX
+- ft_printf and any equivalent
+I coded <br />
 Bonus part:<br />
 - The player lose when they touch an enemy patrol.
 - Added some sprite animation.
