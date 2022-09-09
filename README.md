@@ -13,8 +13,7 @@ External functions:
 malloc, free, perror,
 strerror, exit
 - All functions of the math
-library (-lm compiler option,
-man man 3 math)
+library
 - All functions of the MiniLibX
 - ft_printf and any equivalent
 I coded <br />
